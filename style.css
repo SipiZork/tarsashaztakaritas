@@ -32,8 +32,8 @@ body {
 
 /* Fejléc */
 header {
-    background: rgba(255,255,255,0.9);
-    padding: 16px 0;
+    background: rgba(255,255,255,0.95);
+    padding: 1rem 0;
     border-bottom: 1px solid #e5e7eb;
     display: flex;
     justify-content: space-between;
@@ -42,12 +42,12 @@ header {
     top: 0;
     z-index: 1000;
     backdrop-filter: saturate(180%) blur(8px);
-    transition: padding 0.25s ease, box-shadow 0.25s ease, background-color 0.25s ease;
+    transition: padding 0.25s ease, box-shadow 0.25s ease;
 }
 
 header.is-scrolled {
-    padding: 8px 0;
-    box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+    padding: 0.5rem 0;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
 }
 
 header .container {
@@ -58,24 +58,36 @@ header .container {
 
 .logo {
     margin: 0;
-    font-size: 1.5rem;
+    font-size: 1.4rem;
     color: var(--color-primary);
     font-weight: 700;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+nav {
+    display: flex;
+    flex-wrap: nowrap;
+    gap: 8px;
 }
 
 nav a {
     color: var(--color-muted);
     text-decoration: none;
-    margin-left: 20px;
     font-weight: 500;
     transition: color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
-    padding: 8px 10px;
+    padding: 6px 10px;
     border-radius: 999px;
+    border: 1px solid transparent;
+    display: inline-block;
+    font-size: 0.9rem;
+    white-space: nowrap;
 }
 
 nav a:hover {
     color: var(--color-primary);
     background-color: rgba(10, 77, 104, 0.08);
+    border-color: rgba(10, 77, 104, 0.2);
     box-shadow: 0 2px 8px rgba(10, 77, 104, 0.08);
 }
 
@@ -83,11 +95,20 @@ nav a:hover {
     margin-left: 20px;
     color: #fff;
     background: var(--color-primary);
-    padding: 10px 16px;
-    border-radius: 999px;
+    padding: 8px 14px;
+    border-radius: 8px;
     text-decoration: none;
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 0.9rem;
     box-shadow: var(--shadow-sm);
+    transition: all 0.2s ease;
+    white-space: nowrap;
+}
+
+.phone-number:hover {
+    background: var(--color-primary-600, #0b5977);
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(10, 77, 104, 0.2);
 }
 
 /* Fő szekció (Hero) */
@@ -260,20 +281,35 @@ footer {
 
 /* Reszponzív design */
 @media (max-width: 768px) {
+    header {
+        padding: 0.5rem 0;
+    }
+    
+    header.is-scrolled {
+        padding: 0.25rem 0;
+    }
+
     header .container {
-        flex-direction: column;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
     }
 
     nav {
-        margin-top: 10px;
+        display: none;
     }
 
-    nav a {
-        margin: 0 10px;
+    .logo {
+        font-size: 1.1rem;
+        line-height: 1.1;
     }
 
-    .logo, .phone-number {
-        margin-top: 10px;
+    .phone-number {
+        margin: 0;
+        padding: 6px 10px;
+        font-size: 0.8rem;
+        border-radius: 6px;
     }
 }
 
